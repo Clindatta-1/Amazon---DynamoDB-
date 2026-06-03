@@ -1,0 +1,173 @@
+{
+  "EcommerceTable": [
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":         { "S": "CUSTOMER#C001" },
+          "SK":         { "S": "PROFILE#C001" },
+          "entity_type":{ "S": "CUSTOMER" },
+          "customer_id":{ "S": "C001" },
+          "name":       { "S": "Alice Johnson" },
+          "email":      { "S": "alice@example.com" },
+          "phone":      { "S": "+1-555-0101" },
+          "status":     { "S": "ACTIVE" },
+          "created_at": { "S": "2023-01-15T10:00:00Z" },
+          "GSI1PK":     { "S": "STATUS#ACTIVE" },
+          "GSI1SK":     { "S": "CUSTOMER#C001" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":         { "S": "CUSTOMER#C002" },
+          "SK":         { "S": "PROFILE#C002" },
+          "entity_type":{ "S": "CUSTOMER" },
+          "customer_id":{ "S": "C002" },
+          "name":       { "S": "Bob Martinez" },
+          "email":      { "S": "bob@example.com" },
+          "phone":      { "S": "+1-555-0202" },
+          "status":     { "S": "ACTIVE" },
+          "created_at": { "S": "2023-02-20T11:30:00Z" },
+          "GSI1PK":     { "S": "STATUS#ACTIVE" },
+          "GSI1SK":     { "S": "CUSTOMER#C002" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":         { "S": "CUSTOMER#C003" },
+          "SK":         { "S": "PROFILE#C003" },
+          "entity_type":{ "S": "CUSTOMER" },
+          "customer_id":{ "S": "C003" },
+          "name":       { "S": "Carol Chen" },
+          "email":      { "S": "carol@example.com" },
+          "phone":      { "S": "+1-555-0303" },
+          "status":     { "S": "ACTIVE" },
+          "created_at": { "S": "2023-03-10T09:15:00Z" },
+          "GSI1PK":     { "S": "STATUS#ACTIVE" },
+          "GSI1SK":     { "S": "CUSTOMER#C003" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":         { "S": "CUSTOMER#C001" },
+          "SK":         { "S": "ORDER#O1001" },
+          "entity_type":{ "S": "ORDER" },
+          "customer_id":{ "S": "C001" },
+          "order_id":   { "S": "O1001" },
+          "status":     { "S": "DELIVERED" },
+          "total":      { "N": "149.97" },
+          "item_count": { "N": "3" },
+          "order_date": { "S": "2023-06-01T12:00:00Z" },
+          "GSI1PK":     { "S": "STATUS#DELIVERED" },
+          "GSI1SK":     { "S": "ORDER#O1001" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":         { "S": "CUSTOMER#C001" },
+          "SK":         { "S": "ORDER#O1002" },
+          "entity_type":{ "S": "ORDER" },
+          "customer_id":{ "S": "C001" },
+          "order_id":   { "S": "O1002" },
+          "status":     { "S": "SHIPPED" },
+          "total":      { "N": "89.99" },
+          "item_count": { "N": "1" },
+          "order_date": { "S": "2023-07-15T16:30:00Z" },
+          "GSI1PK":     { "S": "STATUS#SHIPPED" },
+          "GSI1SK":     { "S": "ORDER#O1002" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":          { "S": "ORDER#O1001" },
+          "SK":          { "S": "ITEM#P001" },
+          "entity_type": { "S": "ORDER_ITEM" },
+          "order_id":    { "S": "O1001" },
+          "product_id":  { "S": "P001" },
+          "product_name":{ "S": "Wireless Headphones" },
+          "quantity":    { "N": "1" },
+          "unit_price":  { "N": "49.99" },
+          "line_total":  { "N": "49.99" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":          { "S": "ORDER#O1001" },
+          "SK":          { "S": "ITEM#P002" },
+          "entity_type": { "S": "ORDER_ITEM" },
+          "order_id":    { "S": "O1001" },
+          "product_id":  { "S": "P002" },
+          "product_name":{ "S": "USB-C Hub" },
+          "quantity":    { "N": "2" },
+          "unit_price":  { "N": "29.99" },
+          "line_total":  { "N": "59.98" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":          { "S": "PRODUCT#P001" },
+          "SK":          { "S": "METADATA#P001" },
+          "entity_type": { "S": "PRODUCT" },
+          "product_id":  { "S": "P001" },
+          "name":        { "S": "Wireless Headphones" },
+          "category":    { "S": "Electronics" },
+          "price":       { "N": "49.99" },
+          "stock_qty":   { "N": "120" },
+          "in_stock":    { "BOOL": true },
+          "tags":        { "SS": ["audio", "wireless", "bluetooth"] },
+          "GSI1PK":      { "S": "CATEGORY#Electronics" },
+          "GSI1SK":      { "S": "PRODUCT#P001" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":          { "S": "PRODUCT#P002" },
+          "SK":          { "S": "METADATA#P002" },
+          "entity_type": { "S": "PRODUCT" },
+          "product_id":  { "S": "P002" },
+          "name":        { "S": "USB-C Hub" },
+          "category":    { "S": "Electronics" },
+          "price":       { "N": "29.99" },
+          "stock_qty":   { "N": "85" },
+          "in_stock":    { "BOOL": true },
+          "tags":        { "SS": ["usb", "hub", "connectivity"] },
+          "GSI1PK":      { "S": "CATEGORY#Electronics" },
+          "GSI1SK":      { "S": "PRODUCT#P002" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "PK":          { "S": "PRODUCT#P004" },
+          "SK":          { "S": "METADATA#P004" },
+          "entity_type": { "S": "PRODUCT" },
+          "product_id":  { "S": "P004" },
+          "name":        { "S": "Mechanical Keyboard" },
+          "category":    { "S": "Electronics" },
+          "price":       { "N": "89.99" },
+          "stock_qty":   { "N": "45" },
+          "in_stock":    { "BOOL": true },
+          "tags":        { "SS": ["keyboard", "mechanical", "gaming"] },
+          "GSI1PK":      { "S": "CATEGORY#Electronics" },
+          "GSI1SK":      { "S": "PRODUCT#P004" }
+        }
+      }
+    }
+  ]
+}
